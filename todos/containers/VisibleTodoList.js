@@ -7,8 +7,10 @@ const getVisibleTodos = (todos, filter) => {
     case 'SHOW_ALL':
       return todos
     case 'SHOW_COMPLETED':
+      // 这里的filter是ES6的数组filter
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
+      // 这里的filter是ES6的数组filter
       return todos.filter(t => !t.completed)
   }
 }
@@ -27,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+// 通过connect把todos和onTodoClick加入props里。
 const VisibleTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
